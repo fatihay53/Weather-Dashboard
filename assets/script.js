@@ -18,12 +18,20 @@ async function getWeather(){
     document.getElementById('cityName').textContent = weekWeather.city.name + ' ' + `${moment().format('L')}`  
     var windFix = Math.floor(`${weekWeather.list[0].speed}`);
     document.getElementById('windSpeed').innerHTML = `WindSpeed: ${windFix} MPH`
+    // cityName button after clicked search button
     const cityName = document.createElement('button')
     cityName.setAttribute('class',  `btn-secondary ${city.name}`)
     cityName.setAttribute('id', 'deleted-when-cleared')
     cityName.textContent = `${weekWeather.city.name}`
+    document.querySelector('.list-group').appendChild(cityName)
+    document.getElementById(`${weekWeather.city.name}`).onclick = function () {testing(this.id)}
+
     
-    document.querySelector('.list-group').appendChild(cityName) 
+    cities.push(`${weekWeather.city.name}`)
+    localStorage.setItem('cities', JSON.stringify(cities));
+    
+    
+    
     for ( i=1;i<7; i++){
         var element = document.getElementById('col'); 
         element.classList.remove('hidden');
@@ -31,6 +39,7 @@ async function getWeather(){
         var temperatureFix = Math.floor(`${weekWeather.list[i-1].temp.day}`)
         document.getElementById(`temperature${i}`).innerHTML = `Temp: ${temperatureFix} °C`
         document.querySelector(`#imageWeather${i}`).src = `http://openweathermap.org/img/wn/${weekWeather.list[i-1].weather[0].icon}@2x.png`
+        //background image depends of weather condition
         if (`${weekWeather.list[i-1].weather[0].main}` == "Snow" ){
             document.querySelector(`#card${i-1}`).style.backgroundImage = "url(assets/snow.gif)";
         }
@@ -58,8 +67,7 @@ async function getWeather(){
         document.getElementById(`uvIndex`).innerHTML = `UV Index: ${weekWeather2.value }`
         
 
-// cities.push(`${weekWeather.city.name}`)
-//         localStorage.setItem('cities', JSON.stringify(cities));
+
 
 
 //         if (localStorage.getItem("cities"))  {
