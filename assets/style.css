@@ -1,0 +1,36 @@
+#header {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+#header{
+    background-color: grey;
+    width: 100%;
+}
+#searchButton{
+    background-color: lightskyblue;
+    width: 35px;
+    height: 35px;
+    color: white;
+}
+.list-group-item{
+    
+    margin-top: 5px;
+}
+.me-2{
+    widows: 400px; ;
+}
+.row2{
+    border: solid black 1px;
+}
+p{
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+  .hidden {
+    display: none;
+  }
+  
