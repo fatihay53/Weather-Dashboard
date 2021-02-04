@@ -44,7 +44,7 @@ async function getWeather(searchValue){
         makeRow(searchValue);
     }
     
-    apiur1 =`https://api.openweathermap.org/data/2.5/forecast/daily?q=${searchValue}&appid=166a433c57516f51dfab1f7edaed8413&units=imperial`
+    apiur1 =`https://api.openweathermap.org/data/2.5/forecast/daily?q=${searchValue}&appid=166a433c57516f51dfab1f7edaed8413&units=metric`
     
     // get the city information
   
